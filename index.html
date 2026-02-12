@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine? ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family: 'Comic Sans MS', cursive;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* Pages */
+.page{
+    display:none;
+    height:100vh;
+    width:100%;
+    position:absolute;
+}
+
+.active{
+    display:block;
+}
+
+/* Backgrounds */
+#page1{background: linear-gradient(pink, red);}
+#page2{background:red; color:white; overflow:auto;}
+#page3{background:linear-gradient(#ff9a9e,#fad0c4);}
+#page4{background:linear-gradient(#ff6a88,#ff99ac);}
+
+/* Buttons */
+button{
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    margin:10px;
+}
+
+.yes{background:#ff4d6d; color:white;}
+.no{background:gray; color:white; position:absolute;}
+
+/* Floating hearts */
+.heart{
+    position:absolute;
+    color:#ff3366;
+    animation: float 6s linear infinite;
+    font-size:20px;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
+}
+
+/* Gallery */
+.gallery img{
+    width:180px;
+    height:180px;
+    margin:10px;
+    border-radius:20px;
+    box-shadow:0 0 10px pink;
+}
+
+/* Teddy styling */
+.teddy{
+    width:260px;
+    margin-top:20px;
+    filter: drop-shadow(0 0 15px rgba(255,0,100,0.6));
+}
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<div class="page active" id="page1">
+    <h1 style="margin-top:200px; color:rgb(255, 255, 255);">HELLO MISS. MAHI YADAV ❤️</h1>
+    <h2 style="color:white;">I HAVE SOMETHING SPEICAL FOR YOU...</h2>
+    <button class="yes" onclick="nextPage(2)">OPEN 💌</button>
+</div>
+
+<!-- Page 2 -->
+<div class="page" id="page2">
+    <h1>Our Little Love Story ❤️</h1>
+    
+    <div class="gallery">
+        <img src="WhatsApp Image 2026-02-12 at 2.56.34 PM (3).jpeg">
+        <img src="WhatsApp Image 2026-02-12 at 2.56.34 PM (2).jpeg">
+       
+    </div>
+
+    <p style="padding:20px; font-size:18px;">
+    From the moment you came into my life, everything started feeling brighter and happier. 
+    Your smile feels like sunshine, your voice feels like comfort, and your presence makes 
+    even ordinary days feel special. Every laugh we share, every conversation we have, and 
+    every little memory we create means the world to me. You are someone who makes my heart feel at home. 💖✨
+    </p>
+
+    <button class="yes" onclick="nextPage(3)">Next ❤️</button>
+</div>
+
+<!-- Page 3 -->
+<div class="page" id="page3">
+    <h1 style="margin-top:200px;"><b>Will You Be My Valentine? 💘</b></h1>
+    <button class="yes" onclick="nextPage(4)">Yes ❤️</button>
+    <button class="no" id="noBtn">No</button>
+</div>
+
+<!-- Page 4 -->
+<div class="page" id="page4">
+    <h1 style="margin-top:100px;">FINALLLYYYYY❤️</h1>
+    <p style="font-size:20px; padding:20px;">
+        You said yes 💖  
+       I promise to be by your side for the rest of the life,
+       I can't explain how happy and blessed i feel to have you,
+       Remember you can never be replaced by anyone,
+       I love you 💖🥰
+    </p>
+
+    <!-- Your uploaded teddy GIF -->
+    <img src="Milk And Mocha Cute GIF - Milk And Mocha Cute Hug - Discover & Share GIFs.gif" class="teddy" alt="Hugging Teddy">
+</div>
+
+<script>
+// Page navigation
+function nextPage(num){
+    document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+    document.getElementById("page"+num).classList.add("active");
+}
+
+// Floating hearts
+for(let i=0;i<30;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+}
+
+// Flying No button
+let noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", function(){
+    noBtn.style.top=Math.random()*80+"vh";
+    noBtn.style.left=Math.random()*80+"vw";
+});
+</script>
+
+</body>
+</html>
